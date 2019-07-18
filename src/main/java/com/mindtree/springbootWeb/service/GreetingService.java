@@ -16,5 +16,7 @@ public interface GreetingService {
 	Greeting update(Greeting greeting);
 	
 	void delete(BigInteger id);
+	
+	void evictCache();
 
 }

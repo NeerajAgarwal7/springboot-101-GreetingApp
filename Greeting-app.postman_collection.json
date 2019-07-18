@@ -1,0 +1,122 @@
+{
+	"id": "625ba294-98d0-4e1d-a976-55e61fff6d2c",
+	"name": "Greeting-app",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"8420354a-5ceb-4b46-b075-041d9d277586",
+		"dfb169a8-8d8a-4414-8dba-b2fdfc10e667",
+		"97a132b0-bf98-45fa-9c1f-61b51008d7a4",
+		"7f0b8a1d-6db6-4570-8c76-f71bc6394ecd",
+		"0e7b9f02-da1b-4253-968a-9539f092b699"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "0e7b9f02-da1b-4253-968a-9539f092b699",
+			"name": "Delete",
+			"url": "http://localhost:8080/api/greetings/1",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"id\":1\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "7f0b8a1d-6db6-4570-8c76-f71bc6394ecd",
+			"name": "Update",
+			"url": "http://localhost:8080/api/greetings/1",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"id\":1,\n\t\"text\":\"Hola Mundo\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "8420354a-5ceb-4b46-b075-041d9d277586",
+			"name": "Get all",
+			"url": "http://localhost:8080/api/greetings",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "97a132b0-bf98-45fa-9c1f-61b51008d7a4",
+			"name": "Get one",
+			"url": "http://localhost:8080/api/greetings/1",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "dfb169a8-8d8a-4414-8dba-b2fdfc10e667",
+			"name": "Create",
+			"url": "http://localhost:8080/api/greetings",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"rawModeData": "{\n\t\"id\":1,\n\t\"text\":\"Hello World\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		}
+	]
+}

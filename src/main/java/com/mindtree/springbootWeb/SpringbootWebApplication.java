@@ -6,11 +6,13 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
 @Cacheable
+@EnableScheduling
 public class SpringbootWebApplication {
 
 	public static void main(String[] args) throws Exception {
@@ -43,5 +45,5 @@ public class SpringbootWebApplication {
 		CaffeineCacheManager cacheManager = new CaffeineCacheManager("greetings");
 		return cacheManager;
 	}
-
+	
 }

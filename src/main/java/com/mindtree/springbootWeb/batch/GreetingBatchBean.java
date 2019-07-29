@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import com.mindtree.springbootWeb.model.Greeting;
 import com.mindtree.springbootWeb.service.GreetingService;
 
+@SuppressWarnings("unused")
 @Component
 public class GreetingBatchBean {
 

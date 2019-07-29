@@ -6,6 +6,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @Cacheable
 @EnableScheduling
+@EnableAsync
 public class SpringbootWebApplication {
 
 	public static void main(String[] args) throws Exception {

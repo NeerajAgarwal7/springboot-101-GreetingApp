@@ -12,6 +12,7 @@ import org.springframework.web.context.WebApplicationContext;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mindtree.springbootWeb.controller.GreetingController;
 
 @WebAppConfiguration
 public abstract class AbstractControllerTest extends AbstractTest {
@@ -21,10 +22,16 @@ public abstract class AbstractControllerTest extends AbstractTest {
 	@Autowired
 	protected WebApplicationContext webApplicationContext;
 
+	// For junit test cases
 	protected void setUp() {
 		mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
 	}
 
+	// For mockito test cases
+	protected void setUp(GreetingController controller) {
+		mvc = MockMvcBuilders.standaloneSetup(controller).build();
+	}
+	
 	// Utility method to convert java objects to JSON
 	protected String mapToJson(Object obj) throws JsonProcessingException {
 

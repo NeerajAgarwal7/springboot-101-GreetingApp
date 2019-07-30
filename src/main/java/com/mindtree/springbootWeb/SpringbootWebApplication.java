@@ -34,13 +34,13 @@ public class SpringbootWebApplication {
 		 */		
 		
 		
-		/*
+		/* 
 		 * Guava cache manager is deprecated in springboot 2.0 
 		 * GuavaCacheManager cacheManager = new GuavaCacheManager();
 		 */
 		
 		/*
-		 * Caffine is a replacement for Guava.
+		 * Caffine is a replacement for Guava
 		 * Suiatable for production as it more robust and reliable
 		 */
 		

@@ -10,7 +10,8 @@
 		"dfb169a8-8d8a-4414-8dba-b2fdfc10e667",
 		"97a132b0-bf98-45fa-9c1f-61b51008d7a4",
 		"7f0b8a1d-6db6-4570-8c76-f71bc6394ecd",
-		"0e7b9f02-da1b-4253-968a-9539f092b699"
+		"0e7b9f02-da1b-4253-968a-9539f092b699",
+		"2bb369a8-b9b4-479e-bce9-4ff970edd108"
 	],
 	"folders_order": [],
 	"folders": [],
@@ -34,8 +35,33 @@
 			"auth": null,
 			"events": [],
 			"folder": null,
-			"rawModeData": "{\n\t\"id\":1\n}",
+			"rawModeData": "",
 			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "2bb369a8-b9b4-479e-bce9-4ff970edd108",
+			"name": "Send Email",
+			"url": "http://localhost:8080/api/greetings/1/send?wait=true",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "wait",
+					"value": "true",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
 			"pathVariables": {}
 		},
 		{
@@ -81,7 +107,7 @@
 		{
 			"id": "97a132b0-bf98-45fa-9c1f-61b51008d7a4",
 			"name": "Get one",
-			"url": "http://localhost:8080/api/greetings/1",
+			"url": "http://localhost:8080/api/greetings/2",
 			"description": "",
 			"data": null,
 			"dataMode": "params",
@@ -105,7 +131,8 @@
 			"headerData": [
 				{
 					"key": "Content-Type",
-					"value": "application/json"
+					"value": "application/json",
+					"description": ""
 				}
 			],
 			"method": "POST",
@@ -114,7 +141,7 @@
 			"auth": null,
 			"events": [],
 			"folder": null,
-			"rawModeData": "{\n\t\"id\":1,\n\t\"text\":\"Hello World\"\n}",
+			"rawModeData": "{\n\t\"text\":\"hello world\"\n}",
 			"headers": "Content-Type: application/json\n",
 			"pathVariables": {}
 		}

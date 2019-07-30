@@ -2,6 +2,12 @@ package com.mindtree.springbootWeb.service;
 
 import java.math.BigInteger;
 import java.util.Collection;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.NoResultException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -30,8 +36,12 @@ public class GreetingServiceBean implements GreetingService {
 	@Override
 	@Cacheable(value = "greetings", key = "#id")
 	public Greeting findOne(BigInteger id) {
-		Greeting greeting = greetingRepository.getOne(id);
-		return greeting;
+		try {
+			Greeting greeting = greetingRepository.findById(id).get();
+			return greeting;
+		} catch (NoSuchElementException e) {
+			return null;
+		}
 	}
 
 	@Override
@@ -40,7 +50,7 @@ public class GreetingServiceBean implements GreetingService {
 	public Greeting create(Greeting greeting) {
 		if (greeting.getId() != null) {
 			// cannot create greeting with existing id
-			return null;
+			throw new EntityExistsException();
 		}
 
 		Greeting savedGreeting = greetingRepository.save(greeting);
@@ -64,7 +74,7 @@ public class GreetingServiceBean implements GreetingService {
 		Greeting persistedGreeting = findOne(greeting.getId());
 		if (persistedGreeting == null) {
 			// cannot update non existing entity
-			return null;
+			throw new NoResultException();
 		}
 		Greeting updatedGreeting = greetingRepository.save(greeting);
 		return updatedGreeting;
@@ -77,7 +87,7 @@ public class GreetingServiceBean implements GreetingService {
 		greetingRepository.deleteById(id);
 	}
 
-	//Clear cache
+	// Clear cache
 	@Override
 	@CacheEvict(value = "greetings", allEntries = true)
 	public void evictCache() {

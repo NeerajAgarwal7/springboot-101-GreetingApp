@@ -46,10 +46,10 @@ public class GreetingController {
 
 		logger.info("> Find one");
 		Greeting greeting = greetingService.findOne(id);
+		logger.info("< Find one");
 		if (greeting == null) {
 			return new ResponseEntity<Greeting>(HttpStatus.NOT_FOUND);
 		}
-		logger.info("< Find one");
 		return new ResponseEntity<Greeting>(greeting, HttpStatus.OK);
 
 	}

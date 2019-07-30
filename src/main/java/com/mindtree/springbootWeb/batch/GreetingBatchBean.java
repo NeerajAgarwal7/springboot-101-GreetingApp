@@ -1,17 +1,17 @@
 package com.mindtree.springbootWeb.batch;
 
 import java.util.Collection;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import com.mindtree.springbootWeb.model.Greeting;
 import com.mindtree.springbootWeb.service.GreetingService;
 
-@SuppressWarnings("unused")
+// Runs only if "dev" profile is active
+@Profile("dev")
 @Component
 public class GreetingBatchBean {
 
@@ -19,9 +19,12 @@ public class GreetingBatchBean {
 
 	@Autowired
 	private GreetingService greetingService;
-	
+
 	// Cron Job
+	// Hard coded
 	// @Scheduled(cron = "0,30 * * * * *")
+	// From properties file
+	@Scheduled(cron = "${dev.greeting.cron}")
 	public void cronJob() {
 		logger.info(">Cron Job");
 
@@ -42,14 +45,16 @@ public class GreetingBatchBean {
 	/*
 	 * Sample output
 	 * 2019-07-23 11:58:46.132  INFO 9352 --- [           main] c.m.s.SpringbootWebApplication           : Started SpringbootWebApplication in 5.968 seconds (JVM running for 7.308)
-	 * 2019-07-23 11:58:51.091  INFO 9352 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : >FixedRateDelay
-	 * 2019-07-23 11:58:56.095  INFO 9352 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : Processing time was 5 seconds
-	 * 2019-07-23 11:58:56.095  INFO 9352 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : >FixedRateDelay
-	 * 2019-07-23 11:59:01.092  INFO 9352 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : >FixedRateDelay
-	 * 2019-07-23 11:59:06.094  INFO 9352 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : Processing time was 5 seconds
-	 * 2019-07-23 11:59:06.094  INFO 9352 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : >FixedRateDelay
+	 * 2019-07-23 11:58:51.091  INFO 9352 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : >FixedRateDelay
+	 * 2019-07-23 11:58:56.095  INFO 9352 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : Processing time was 5 seconds
+	 * 2019-07-23 11:58:56.095  INFO 9352 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : >FixedRateDelay
+	 * 2019-07-23 11:59:01.092  INFO 9352 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : >FixedRateDelay
+	 * 2019-07-23 11:59:06.094  INFO 9352 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : Processing time was 5 seconds
+	 * 2019-07-23 11:59:06.094  INFO 9352 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : >FixedRateDelay
 	 */
+	
 	// @Scheduled(initialDelay = 5000, fixedRate = 10000)
+	// @Scheduled(initialDelayString = "${dev.greeting.initialdelay}", fixedRateString = "${dev.greeting.fixedrate}")
 	public void FixedRateJob() {
 		logger.info(">FixedRateJob");
 
@@ -76,15 +81,16 @@ public class GreetingBatchBean {
 
 	/*
 	 * 2019-07-23 12:25:08.236  INFO 7696 --- [           main] c.m.s.SpringbootWebApplication           : Started SpringbootWebApplication in 4.052 seconds (JVM running for 5.25)
-	 * 2019-07-23 12:25:13.205  INFO 7696 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : >FixedDelayJob
-	 * 2019-07-23 12:25:18.217  INFO 7696 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : Processing time was 5 seconds
-	 * 2019-07-23 12:25:18.217  INFO 7696 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : <FixedDelayJob
-	 * 2019-07-23 12:25:28.220  INFO 7696 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : >FixedDelayJob
-	 * 2019-07-23 12:25:33.222  INFO 7696 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : Processing time was 5 seconds
-	 * 2019-07-23 12:25:33.222  INFO 7696 --- [   scheduling-1] c.m.s.batch.GreetingBatchBean            : <FixedDelayJob
+	 * 2019-07-23 12:25:13.205  INFO 7696 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : >FixedDelayJob
+	 * 2019-07-23 12:25:18.217  INFO 7696 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : Processing time was 5 seconds
+	 * 2019-07-23 12:25:18.217  INFO 7696 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : <FixedDelayJob
+	 * 2019-07-23 12:25:28.220  INFO 7696 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : >FixedDelayJob
+	 * 2019-07-23 12:25:33.222  INFO 7696 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : Processing time was 5 seconds
+	 * 2019-07-23 12:25:33.222  INFO 7696 --- [   scheduling-1] c.m.s.dev.GreetingdevBean            : <FixedDelayJob
 	 */
-	
-	//@Scheduled(initialDelay = 5000, fixedDelay = 10000)
+
+	// @Scheduled(initialDelay = 5000, fixedDelay = 10000)
+	// @Scheduled(initialDelayString = "${dev.greeting.initialdelay}", fixedDelayString = "${dev.greeting.fixeddelay}")
 	public void FixedDelayjob() {
 		logger.info(">FixedDelayJob");
 

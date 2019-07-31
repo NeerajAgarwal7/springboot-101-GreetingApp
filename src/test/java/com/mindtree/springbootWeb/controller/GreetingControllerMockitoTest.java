@@ -25,6 +25,11 @@ import com.mindtree.springbootWeb.model.Greeting;
 import com.mindtree.springbootWeb.service.EmailService;
 import com.mindtree.springbootWeb.service.GreetingService;
 
+/*
+ *  Mockito does not hit the service layer
+ *  Instead it mocks the result to be received when function call is made 
+ */
+
 @Transactional
 public class GreetingControllerMockitoTest extends AbstractControllerTest {
 

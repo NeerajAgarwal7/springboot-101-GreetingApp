@@ -11,6 +11,7 @@ import com.mindtree.springbootWeb.model.Greeting;
 import com.mindtree.springbootWeb.service.GreetingService;
 
 // Runs only if "dev" profile is active
+// Sample use case : Periodically clear cache
 @Profile("dev")
 @Component
 public class GreetingBatchBean {

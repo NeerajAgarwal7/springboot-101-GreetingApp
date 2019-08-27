@@ -3,10 +3,8 @@ package com.mindtree.springbootWeb.service;
 import java.math.BigInteger;
 import java.util.Collection;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 import javax.persistence.EntityExistsException;
-import javax.persistence.EntityNotFoundException;
 import javax.persistence.NoResultException;
 
 import org.springframework.beans.factory.annotation.Autowired;

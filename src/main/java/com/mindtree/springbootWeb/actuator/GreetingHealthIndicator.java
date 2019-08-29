@@ -1,4 +1,4 @@
-package com.mindtree.springbootWeb.actuator.health;
+package com.mindtree.springbootWeb.actuator;
 
 import java.util.Collection;
 

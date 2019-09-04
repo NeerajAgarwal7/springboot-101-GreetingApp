@@ -4,8 +4,6 @@ import java.math.BigInteger;
 import java.util.Collection;
 import java.util.concurrent.CompletableFuture;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,9 +19,7 @@ import com.mindtree.springbootWeb.service.EmailService;
 import com.mindtree.springbootWeb.service.GreetingService;
 
 @RestController
-public class GreetingController {
-
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
+public class GreetingController extends BaseController {
 
 	@Autowired
 	private GreetingService greetingService;
